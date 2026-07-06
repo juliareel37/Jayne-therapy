@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="title">
+  <title id="title">Jayne Therapy logo placeholder</title>
+  <circle cx="60" cy="60" r="54" fill="#d9d9d9"/>
+  <text
+    x="60"
+    y="66"
+    fill="#ffffff"
+    font-family="DM Sans, Arial, sans-serif"
+    font-size="20"
+    font-weight="600"
+    text-anchor="middle"
+  >LOGO</text>
+</svg>

@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Design System | Jayne Therapy</title>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="site-nav" aria-label="Main navigation">
+        <a class="site-logo" href="../index.html" aria-label="Jayne Therapy home">
+          <img src="../assets/images/logo-placeholder.svg" alt="Jayne Therapy">
+        </a>
+
+        <div class="nav-links" aria-label="Home page sections">
+          <a href="../index.html#about">About Me</a>
+          <a href="../index.html#services">Services</a>
+          <a href="../index.html#faq">FAQ</a>
+          <a class="button button-primary nav-cta" href="../book-consultation.html">Book Consultation</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="ds-page">
+      <div class="container stack">
+        <header class="stack">
+          <span class="badge badge-primary">Design System</span>
+          <h1>Jayne Therapy UI Preview</h1>
+          <p class="text-lg text-secondary">
+            A visual reference for checking tokens, typography, components, and states as the CSS changes.
+          </p>
+        </header>
+
+        <section class="ds-section stack" aria-labelledby="colors-heading">
+          <h2 id="colors-heading">Colors</h2>
+          <div class="ds-token-grid">
+            <article class="ds-swatch" style="--swatch-color: var(--color-brand-primary);">
+              <span>Brand Primary</span>
+              <code>--color-brand-primary</code>
+            </article>
+            <article class="ds-swatch" style="--swatch-color: var(--color-brand-secondary);">
+              <span>Brand Secondary</span>
+              <code>--color-brand-secondary</code>
+            </article>
+            <article class="ds-swatch" style="--swatch-color: var(--color-brand-accent);">
+              <span>Brand Accent</span>
+              <code>--color-brand-accent</code>
+            </article>
+            <article class="ds-swatch" style="--swatch-color: var(--color-brand-primary-soft);">
+              <span>Soft Sky</span>
+              <code>--color-brand-primary-soft</code>
+            </article>
+            <article class="ds-swatch" style="--swatch-color: var(--color-brand-secondary-soft);">
+              <span>Soft Apricot</span>
+              <code>--color-brand-secondary-soft</code>
+            </article>
+            <article class="ds-swatch" style="--swatch-color: var(--color-brand-accent-soft);">
+              <span>Soft Blush</span>
+              <code>--color-brand-accent-soft</code>
+            </article>
+            <article class="ds-swatch ds-swatch-gradient">
+              <span>Brand Gradient</span>
+              <code>--color-brand-gradient</code>
+            </article>
+            <article class="ds-swatch" style="--swatch-color: var(--color-bg);">
+              <span>Background</span>
+              <code>--color-bg</code>
+            </article>
+            <article class="ds-swatch" style="--swatch-color: var(--color-surface);">
+              <span>Surface</span>
+              <code>--color-surface</code>
+            </article>
+            <article class="ds-swatch" style="--swatch-color: var(--color-surface-muted);">
+              <span>Surface Muted</span>
+              <code>--color-surface-muted</code>
+            </article>
+            <article class="ds-swatch" style="--swatch-color: var(--color-text-primary);">
+              <span>Text Primary</span>
+              <code>--color-text-primary</code>
+            </article>
+            <article class="ds-swatch" style="--swatch-color: var(--color-text-secondary);">
+              <span>Text Secondary</span>
+              <code>--color-text-secondary</code>
+            </article>
+            <article class="ds-swatch" style="--swatch-color: var(--color-border);">
+              <span>Border</span>
+              <code>--color-border</code>
+            </article>
+            <article class="ds-swatch" style="--swatch-color: var(--color-success);">
+              <span>Success</span>
+              <code>--color-success</code>
+            </article>
+            <article class="ds-swatch" style="--swatch-color: var(--color-warning);">
+              <span>Warning</span>
+              <code>--color-warning</code>
+            </article>
+            <article class="ds-swatch" style="--swatch-color: var(--color-error);">
+              <span>Error</span>
+              <code>--color-error</code>
+            </article>
+          </div>
+        </section>
+
+        <section class="ds-section stack" aria-labelledby="typography-heading">
+          <h2 id="typography-heading">Typography</h2>
+          <div class="ds-type-specimen">
+            <div class="stack">
+              <p class="overline">Serif - Playfair Display</p>
+
+              <article class="ds-type-row">
+                <p class="display">Display</p>
+                <p class="ds-type-meta">60px &middot; Light &middot; font-serif</p>
+              </article>
+
+              <article class="ds-type-row">
+                <h1>Heading 1</h1>
+                <p class="ds-type-meta">48px &middot; Light &middot; font-serif</p>
+              </article>
+
+              <article class="ds-type-row">
+                <h2>Heading 2</h2>
+                <p class="ds-type-meta">36px &middot; Medium &middot; font-serif</p>
+              </article>
+
+              <article class="ds-type-row">
+                <h3>Heading 3</h3>
+                <p class="ds-type-meta">30px &middot; Medium &middot; font-serif</p>
+              </article>
+
+              <article class="ds-type-row">
+                <h4>Heading 4</h4>
+                <p class="ds-type-meta">24px &middot; Medium &middot; font-serif</p>
+              </article>
+
+              <article class="ds-type-row">
+                <p class="italic-accent">Italic Accent</p>
+                <p class="ds-type-meta">20px &middot; Italic &middot; text-sage-600</p>
+              </article>
+            </div>
+
+            <div class="stack">
+              <p class="overline">Sans - DM Sans</p>
+
+              <article class="ds-type-row">
+                <p class="text-xl text-medium">Large Body</p>
+                <p class="ds-type-meta">20px &middot; Medium &middot; font-sans</p>
+              </article>
+
+              <article class="ds-type-row">
+                <p class="text-lg">Body Large</p>
+                <p class="ds-type-meta">18px &middot; Light &middot; font-sans</p>
+              </article>
+
+              <article class="ds-type-row">
+                <p>Body - The path to healing is not a straight line. It is a journey of small, meaningful steps.</p>
+                <p class="ds-type-meta">16px &middot; Light &middot; leading-relaxed</p>
+              </article>
+
+              <article class="ds-type-row">
+                <p class="text-sm">Small - Supporting text and captions appear at this scale, maintaining clarity without visual weight.</p>
+                <p class="ds-type-meta">14px &middot; Light &middot; text-warm-600</p>
+              </article>
+
+              <article class="ds-type-row">
+                <p class="text-xs">Extra Small &middot; Caption text and metadata</p>
+                <p class="ds-type-meta">12px &middot; Light &middot; text-warm-500</p>
+              </article>
+
+              <article class="ds-type-row">
+                <p class="overline">Overline Label</p>
+                <p class="ds-type-meta">10px &middot; Semibold &middot; Uppercase</p>
+              </article>
+
+              <article class="ds-type-row">
+                <p class="eyebrow">Hero Eyebrow</p>
+                <p class="ds-type-meta">14px &middot; Semibold &middot; Uppercase</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="ds-section stack" aria-labelledby="buttons-heading">
+          <h2 id="buttons-heading">Buttons</h2>
+          <div class="cluster">
+            <a class="button button-primary" href="../book-consultation.html">Primary Button</a>
+            <button class="button button-secondary" type="button">Secondary Button</button>
+            <button class="button button-outline" type="button">Outline Button</button>
+            <button class="button button-primary" type="button" disabled>Disabled Button</button>
+          </div>
+        </section>
+
+        <section class="ds-section stack" aria-labelledby="surfaces-heading">
+          <h2 id="surfaces-heading">Surfaces</h2>
+          <div class="grid grid-3">
+            <article class="card stack">
+              <h3>Card</h3>
+              <p class="text-secondary">Basic bordered content surface.</p>
+            </article>
+            <article class="card card-elevated stack">
+              <h3>Elevated Card</h3>
+              <p class="text-secondary">Card with stronger shadow.</p>
+            </article>
+            <article class="panel stack">
+              <h3>Panel</h3>
+              <p class="text-secondary">Muted section surface.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="ds-section stack" aria-labelledby="forms-heading">
+          <h2 id="forms-heading">Forms</h2>
+          <form class="card grid grid-2">
+            <label class="field">
+              <span class="label">Name</span>
+              <input class="input" type="text" value="Jane Example">
+            </label>
+
+            <label class="field">
+              <span class="label">Service</span>
+              <select class="select">
+                <option>Individual therapy</option>
+                <option>Consultation</option>
+              </select>
+            </label>
+
+            <label class="field">
+              <span class="label">Email</span>
+              <input class="input is-error" type="email" value="jane@example">
+              <span class="field-error">Example error message</span>
+            </label>
+
+            <label class="field">
+              <span class="label">Notes</span>
+              <textarea class="textarea">A short message preview.</textarea>
+            </label>
+          </form>
+        </section>
+
+        <section class="ds-section stack" aria-labelledby="badges-heading">
+          <h2 id="badges-heading">Badges</h2>
+          <div class="cluster">
+            <span class="badge">Default</span>
+            <span class="badge badge-primary">Primary</span>
+            <span class="badge badge-secondary">Secondary</span>
+          </div>
+        </section>
+
+        <section class="ds-section stack" aria-labelledby="spacing-heading">
+          <h2 id="spacing-heading">Spacing, Radius, Shadows</h2>
+          <div class="grid grid-3">
+            <article class="card stack">
+              <h3>Spacing</h3>
+              <div class="ds-space" style="--space-size: var(--space-1);"><span></span><code>--space-1</code></div>
+              <div class="ds-space" style="--space-size: var(--space-3);"><span></span><code>--space-3</code></div>
+              <div class="ds-space" style="--space-size: var(--space-6);"><span></span><code>--space-6</code></div>
+              <div class="ds-space" style="--space-size: var(--space-12);"><span></span><code>--space-12</code></div>
+            </article>
+
+            <article class="card stack">
+              <h3>Radius</h3>
+              <div class="ds-radius" style="border-radius: var(--radius-xs);"><code>--radius-xs</code></div>
+              <div class="ds-radius" style="border-radius: var(--radius-md);"><code>--radius-md</code></div>
+              <div class="ds-radius" style="border-radius: var(--radius-xl);"><code>--radius-xl</code></div>
+            </article>
+
+            <article class="card stack">
+              <h3>Shadows</h3>
+              <div class="ds-shadow" style="box-shadow: var(--shadow-sm);"><code>--shadow-sm</code></div>
+              <div class="ds-shadow" style="box-shadow: var(--shadow-md);"><code>--shadow-md</code></div>
+              <div class="ds-shadow" style="box-shadow: var(--shadow-lg);"><code>--shadow-lg</code></div>
+            </article>
+          </div>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
