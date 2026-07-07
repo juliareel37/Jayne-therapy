@@ -9,7 +9,7 @@ section {
   min-height: 100vh;
   scroll-margin-top: 5rem;
 }
-
+/*test*/
 
 /* =========================================================
    DESIGN SYSTEM
@@ -200,9 +200,9 @@ main {
   border-radius: var(--radius-lg);
 }
 
-.site-logo[aria-current="page"] {
+/* .site-logo[aria-current="page"] {
   background: color-mix(in srgb, var(--color-brand-secondary-soft) 32%, transparent);
-}
+} */
 
 .site-logo img {
   width: auto;
