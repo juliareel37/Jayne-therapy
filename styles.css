@@ -982,9 +982,9 @@ main {
     linear-gradient(145deg, #fffaf6 0%, #fff4ec 48%, #f8fbfb 100%);
 }
 
-.coming-soon-page section {
+/* .coming-soon-page section {
   min-height: auto;
-}
+} */
 
 .coming-soon-hero {
   position: relative;
