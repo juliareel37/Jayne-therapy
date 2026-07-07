@@ -2394,6 +2394,70 @@ h4 {
 
 
 /* -----------------------------
+   Booking Page
+----------------------------- */
+
+.booking-page section {
+  min-height: auto;
+}
+
+.booking-hero {
+  padding-block: clamp(4rem, 8vw, 7rem);
+  background:
+    radial-gradient(circle at 88% 7rem, color-mix(in srgb, var(--color-brand-secondary-soft) 30%, transparent) 0 7rem, transparent 7.1rem),
+    color-mix(in srgb, var(--color-brand-primary-soft) 18%, var(--color-bg));
+}
+
+.booking-layout {
+  display: grid;
+  gap: clamp(2rem, 5vw, 4rem);
+}
+
+.booking-intro {
+  max-width: 46rem;
+  gap: var(--space-5);
+  margin-inline: auto;
+  text-align: center;
+}
+
+.booking-intro p {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-loose);
+}
+
+.booking-widget {
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--color-border) 72%, transparent);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.booking-widget .calendly-inline-widget {
+  width: 100%;
+}
+
+@media (max-width: 620px) {
+  .booking-hero {
+    padding-block: var(--space-12);
+  }
+
+  .booking-intro h1 {
+    font-size: var(--font-size-3xl);
+  }
+
+  .booking-widget {
+    margin-inline: calc(var(--space-8) * -1);
+    border-right: 0;
+    border-left: 0;
+    border-radius: 0;
+  }
+}
+
+
+/* -----------------------------
    11. Forms
 ----------------------------- */
 
