@@ -2403,19 +2403,20 @@ h4 {
 
 .booking-hero {
   padding-block: clamp(4rem, 8vw, 7rem);
-  background:
+  /* background:
     radial-gradient(circle at 88% 7rem, color-mix(in srgb, var(--color-brand-secondary-soft) 30%, transparent) 0 7rem, transparent 7.1rem),
-    color-mix(in srgb, var(--color-brand-primary-soft) 18%, var(--color-bg));
-}
+    color-mix(in srgb, var(--color-brand-primary-soft) 18%, var(--color-bg)); */
+
+  }
 
 .booking-layout {
   display: grid;
-  gap: clamp(2rem, 5vw, 4rem);
+  gap: clamp(2rem, 2.5vw, 3rem);
 }
 
 .booking-intro {
   max-width: 46rem;
-  gap: var(--space-5);
+  gap: var(--space-4);
   margin-inline: auto;
   text-align: center;
 }
@@ -2427,13 +2428,13 @@ h4 {
   line-height: var(--line-height-loose);
 }
 
-.booking-widget {
+/* .booking-widget {
   overflow: hidden;
   border: 1px solid color-mix(in srgb, var(--color-border) 72%, transparent);
   border-radius: var(--radius-lg);
   background: var(--color-surface);
   box-shadow: var(--shadow-sm);
-}
+} */
 
 .booking-widget .calendly-inline-widget {
   width: 100%;
