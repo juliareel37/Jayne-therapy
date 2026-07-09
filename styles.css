@@ -974,8 +974,9 @@ main {
 
 .coming-soon-page {
   min-height: 100vh;
+  min-height: 100svh;
   padding-top: 0;
-  overflow: hidden;
+  overflow-x: hidden;
   background:
     radial-gradient(circle at 12% 18%, color-mix(in srgb, var(--color-brand-primary-soft) 52%, transparent) 0 8rem, transparent 8.1rem),
     radial-gradient(circle at 88% 84%, color-mix(in srgb, var(--color-brand-accent-soft) 64%, transparent) 0 10rem, transparent 10.1rem),
@@ -992,6 +993,7 @@ main {
   display: flex;
   align-items: center;
   min-height: 100vh;
+  min-height: 100svh;
   padding-block: clamp(4rem, 8vw, 7rem);
 }
 
@@ -1030,6 +1032,7 @@ main {
   grid-template-columns: minmax(0, 0.95fr) minmax(13rem, 0.36fr);
   gap: clamp(3rem, 8vw, 5.5rem);
   align-items: center;
+  width: 100%;
   max-width: 64rem;
 }
 
@@ -1154,31 +1157,129 @@ main {
 
 @media (max-width: 900px) {
   .coming-soon-hero {
-    min-height: auto;
+    min-height: 100vh;
+    min-height: 100svh;
   }
 
   .coming-soon-layout {
     grid-template-columns: 1fr;
+    justify-items: center;
+    max-width: 42rem;
+    text-align: center;
   }
 
   .coming-soon-visual {
     width: min(100%, 22rem);
     min-height: 18rem;
   }
+
+  .coming-soon-lede {
+    margin-inline: auto;
+  }
 }
 
 @media (max-width: 560px) {
+  .coming-soon-page {
+    background:
+      radial-gradient(circle at 8% 10%, color-mix(in srgb, var(--color-brand-primary-soft) 45%, transparent) 0 5.5rem, transparent 5.6rem),
+      radial-gradient(circle at 96% 88%, color-mix(in srgb, var(--color-brand-accent-soft) 58%, transparent) 0 7rem, transparent 7.1rem),
+      linear-gradient(145deg, #fffaf6 0%, #fff4ec 48%, #f8fbfb 100%);
+  }
+
   .coming-soon-hero {
-    padding-block: var(--space-10);
+    align-items: flex-start;
+    padding-block: clamp(2.75rem, 8vh, 4rem);
+  }
+
+  .coming-soon-hero::before {
+    top: 4%;
+    left: auto;
+    right: -1.8rem;
+    width: 5.4rem;
+  }
+
+  .coming-soon-hero::after {
+    right: auto;
+    bottom: 2rem;
+    left: -2.4rem;
+    width: 5.8rem;
+  }
+
+  .coming-soon-layout {
+    gap: var(--space-8);
   }
 
   .coming-soon-copy h1 {
-    font-size: var(--font-size-4xl);
+    font-size: clamp(2.4rem, 13vw, 3.35rem);
+    line-height: 1;
+  }
+
+  .coming-soon-lede {
+    font-size: var(--font-size-lg);
+    line-height: 1.6;
+  }
+
+  .coming-soon-visual {
+    width: min(100%, 18rem);
+    min-height: 14.5rem;
+  }
+
+  .coming-soon-portrait {
+    width: min(58vw, 10.5rem);
+    box-shadow:
+      0 0 0 0.42rem color-mix(in srgb, var(--color-surface) 84%, transparent),
+      0 0 0 0.7rem color-mix(in srgb, var(--color-brand-primary-soft) 36%, transparent),
+      var(--shadow-md);
+  }
+
+  .coming-soon-visual::before {
+    width: min(72vw, 13rem);
+  }
+
+  .daisy-large {
+    --daisy-size: 3.55rem;
+    top: 0.25rem;
+    right: 1.1rem;
+  }
+
+  .daisy-small {
+    --daisy-size: 2.35rem;
+    bottom: 2.4rem;
+    left: 1.3rem;
+  }
+
+  .daisy-tiny {
+    --daisy-size: 1.8rem;
+    right: 2.5rem;
+    bottom: 0.9rem;
   }
 
   .coming-soon-note {
     width: 100%;
     text-align: center;
+  }
+}
+
+@media (max-width: 420px) {
+  .container {
+    padding-inline: var(--space-5);
+  }
+
+  .coming-soon-copy {
+    gap: var(--space-4);
+  }
+
+  .coming-soon-copy h1 {
+    font-size: clamp(2.1rem, 12vw, 2.8rem);
+  }
+
+  .coming-soon-lede {
+    font-size: var(--font-size-md);
+  }
+
+  .coming-soon-visual {
+    width: min(100%, 16rem);
+    min-height: 13rem;
   }
 }
 
