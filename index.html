@@ -14,34 +14,34 @@
       <section class="coming-soon-hero" aria-labelledby="coming-soon-heading">
         <div class="container coming-soon-layout">
           <div class="coming-soon-copy stack">
-            <h1 id="coming-soon-heading">Therapy With Jayne is coming soon.</h1>
-            <p class="coming-soon-lede">
-              A therapy website for Jayne Reel, LMSW, PMH-C, is currently in progress. Check back soon!
-            </p>
-            <section class="waitlist-section">
-            <div class="waitlist-card">
-              <h2>Want to hear when we go live?</h2>
-              <p>We'll send you a message when we're up and running.</p>
+            <h1 id="coming-soon-heading">
+              <span class="coming-soon-kicker">Therapy With Jayne is</span>
+              <span class="coming-soon-title">Coming Soon.</span>
+            </h1>
+            <!-- <p class="coming-soon-lede">
+              A website for therapist Jayne Reel, LCSW, is currently in progress. Check back soon!
+            </p> -->
+
+            <section class="waitlist-section" aria-labelledby="waitlist-heading">
+              <!-- <h2 id="waitlist-heading">Want to hear when it's live?</h2> -->
+              <p>A website for therapist Jayne Reel, LCSW, is currently under construction. Enter your email address to be the first to know when it's up and running.</p>
 
               <form id="waitlist-form" class="waitlist-form">
-                <label for="email">Email address</label>
-
                 <div class="waitlist-input-row">
                   <input
                     type="email"
                     id="email"
                     name="email"
-                    placeholder="you@example.com"
+                    placeholder="Your email"
                     autocomplete="email"
                     required
-                  />
+                  >
 
                   <button type="submit" id="waitlist-submit">
-                    Join waitlist
+                    Notify Me
                   </button>
                 </div>
 
-                <!-- Honeypot field: hidden from real users, catches some bots -->
                 <input
                   type="text"
                   id="company"
@@ -50,76 +50,74 @@
                   tabindex="-1"
                   aria-hidden="true"
                   class="honeypot"
-                />
+                >
 
                 <p id="waitlist-message" class="waitlist-message" aria-live="polite"></p>
               </form>
-            </div>
-          </section>
+            </section>
 
+            <script>
+              const waitlistForm = document.getElementById("waitlist-form");
+              const waitlistEmail = document.getElementById("email");
+              const waitlistCompany = document.getElementById("company");
+              const waitlistMessage = document.getElementById("waitlist-message");
+              const waitlistSubmit = document.getElementById("waitlist-submit");
 
-          <script>
-            const waitlistForm = document.getElementById("waitlist-form");
-            const waitlistEmail = document.getElementById("email");
-            const waitlistCompany = document.getElementById("company");
-            const waitlistMessage = document.getElementById("waitlist-message");
-            const waitlistSubmit = document.getElementById("waitlist-submit");
+              const WAITLIST_ENDPOINT = "https://jayne-therapy-waitlist-api.vercel.app/api/subscribe";
 
-            const WAITLIST_ENDPOINT = "https://jayne-therapy-waitlist-api.vercel.app/api/subscribe";
+              function setMessage(text, type) {
+                waitlistMessage.textContent = text;
+                waitlistMessage.className = "waitlist-message";
 
-            function setMessage(text, type) {
-              waitlistMessage.textContent = text;
-              waitlistMessage.className = "waitlist-message";
-
-              if (type) {
-                waitlistMessage.classList.add(type);
-              }
-            }
-
-            waitlistForm.addEventListener("submit", async function (event) {
-              event.preventDefault();
-
-              const email = waitlistEmail.value.trim();
-
-              if (!email) {
-                setMessage("Please enter your email address.", "error");
-                return;
+                if (type) {
+                  waitlistMessage.classList.add(type);
+                }
               }
 
-              waitlistSubmit.disabled = true;
-              waitlistSubmit.textContent = "Joining...";
-              setMessage("", "");
+              waitlistForm.addEventListener("submit", async function (event) {
+                event.preventDefault();
 
-              try {
-                const response = await fetch(WAITLIST_ENDPOINT, {
-                  method: "POST",
-                  headers: {
-                    "Content-Type": "application/json"
-                  },
-                  body: JSON.stringify({
-                    email: email,
-                    company: waitlistCompany.value,
-                    source: "github-pages-waitlist"
-                  })
-                });
+                const email = waitlistEmail.value.trim();
 
-                const result = await response.json();
-
-                if (!response.ok) {
-                  setMessage(result.error || "Something went wrong. Please try again.", "error");
+                if (!email) {
+                  setMessage("Please enter your email address.", "error");
                   return;
                 }
 
-                setMessage("You’re on the list.", "success");
-                waitlistForm.reset();
-              } catch (error) {
-                setMessage("Could not submit. Please try again.", "error");
-              } finally {
-                waitlistSubmit.disabled = false;
-                waitlistSubmit.textContent = "Join waitlist";
-              }
-            });
-          </script>
+                waitlistSubmit.disabled = true;
+                waitlistSubmit.textContent = "Submitting...";
+                setMessage("", "");
+
+                try {
+                  const response = await fetch(WAITLIST_ENDPOINT, {
+                    method: "POST",
+                    headers: {
+                      "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                      email: email,
+                      company: waitlistCompany.value,
+                      source: "github-pages-waitlist"
+                    })
+                  });
+
+                  const result = await response.json();
+
+                  if (!response.ok) {
+                    setMessage(result.error || "Something went wrong. Please try again.", "error");
+                    return;
+                  }
+
+                  setMessage("You're on the list.", "success");
+                  waitlistForm.reset();
+                } catch (error) {
+                  setMessage("Could not submit. Please try again.", "error");
+                } finally {
+                  waitlistSubmit.disabled = false;
+                  waitlistSubmit.textContent = "Notify Me";
+                }
+              });
+            </script>
           </div>
 
           <div class="coming-soon-visual" aria-label="Portrait of Jayne Reel">
