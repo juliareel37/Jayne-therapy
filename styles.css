@@ -145,6 +145,10 @@ body {
   line-height: var(--line-height-base);
 }
 
+body.modal-open {
+  overflow: hidden;
+}
+
 img,
 svg {
   display: block;
@@ -1049,13 +1053,13 @@ main {
   line-height: var(--line-height-loose);
 }
 
-.waitlist-section {
+.contact-section {
   min-height: auto;
   width: min(100%, 39rem);
   /* margin-top: clamp(2.25rem, 6vw, 4.5rem); */
 }
 
-.waitlist-section h2 {
+.contact-section h2 {
   max-width: 38rem;
   margin: 0;
   color: var(--color-text-primary);
@@ -1065,7 +1069,7 @@ main {
   line-height: 1.12;
 }
 
-.waitlist-section > p {
+.contact-section > p {
   max-width: 34rem;
   margin: var(--space-3) 0 var(--space-5);
   color: var(--color-text-secondary);
@@ -1073,58 +1077,18 @@ main {
   line-height: var(--line-height-base);
 }
 
-.waitlist-form {
-  display: grid;
-  gap: var(--space-2);
-  width: min(100%, 38rem);
-  text-align: left;
+.contact-modal[hidden] {
+  display: none;
 }
 
-.waitlist-form label {
-  color: var(--color-brand-primary);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-semibold);
-}
-
-.waitlist-input-row {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: var(--space-2);
-  align-items: stretch;
-}
-
-.waitlist-input-row input {
-  width: 100%;
-  min-width: 0;
-  min-height: 2.7rem;
-  padding: 0 var(--space-3);
-  border: 1px solid color-mix(in srgb, var(--color-text-muted) 36%, transparent);
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--color-surface) 74%, transparent);
-  color: var(--color-text-primary);
-  font: inherit;
-  font-size: var(--font-size-sm);
-  transition:
-    border-color var(--transition-base),
-    box-shadow var(--transition-base);
-}
-
-.waitlist-input-row input::placeholder {
-  color: var(--color-text-muted);
-}
-
-.waitlist-input-row input:focus {
-  outline: none;
-  border-color: var(--color-brand-primary);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-brand-primary) 14%, transparent);
-}
-
-.waitlist-input-row button {
+.contact-toggle,
+.contact-form button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   min-height: 2.7rem;
-  padding: 0 var(--space-4);
+  width: fit-content;
+  padding: 0 var(--space-5);
   border: 1px solid color-mix(in srgb, var(--color-brand-primary) 82%, black);
   border-radius: 999px;
   background: var(--color-brand-primary);
@@ -1140,40 +1104,195 @@ main {
     transform var(--transition-fast);
 }
 
-.waitlist-input-row button:hover,
-.waitlist-input-row button:focus-visible {
+.contact-modal {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-modal);
+  display: grid;
+  place-items: center;
+  padding: clamp(1rem, 4vw, 2rem);
+}
+
+.contact-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgb(31 31 31 / 0.46);
+}
+
+.contact-modal-panel {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: var(--space-5);
+  width: min(100%, 34rem);
+  max-height: min(44rem, calc(100svh - 2rem));
+  overflow-y: auto;
+  padding: clamp(1.25rem, 4vw, 2rem);
+  padding-top: clamp(2.75rem, 7vw, 3.25rem);
+  border: 1px solid color-mix(in srgb, var(--color-brand-primary-soft) 36%, transparent);
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(circle at 8% 0%, color-mix(in srgb, var(--color-brand-primary-soft) 32%, transparent) 0 5.5rem, transparent 5.6rem),
+    var(--color-bg);
+  box-shadow: var(--shadow-lg);
+}
+
+.contact-modal-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: var(--space-4);
+  align-items: start;
+}
+
+.contact-modal-header h3 {
+  margin: 0;
+  color: var(--color-text-primary);
+  font-family: var(--font-family-heading);
+  font-size: clamp(1.65rem, 5vw, 2.15rem);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.1;
+}
+
+.contact-modal-header p {
+  margin: var(--space-2) 0 0;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-base);
+}
+
+.contact-close {
+  position: absolute;
+  top: clamp(0.85rem, 3vw, 1.15rem);
+  right: clamp(0.85rem, 3vw, 1.15rem);
+  display: inline-grid;
+  place-items: center;
+  width: 2.25rem;
+  min-width: 2.25rem;
+  height: 2.25rem;
+  padding: 0;
+  border: 1px solid color-mix(in srgb, var(--color-text-muted) 28%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--color-surface) 78%, transparent);
+  color: var(--color-brand-primary);
+  font: inherit;
+  font-size: 1.45rem;
+  font-weight: var(--font-weight-semibold);
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    background var(--transition-base),
+    border-color var(--transition-base),
+    color var(--transition-base),
+    transform var(--transition-fast);
+}
+
+.contact-close span {
+  transform: translateY(-0.04rem);
+}
+
+.contact-close:hover,
+.contact-close:focus-visible {
+  background: color-mix(in srgb, var(--color-brand-primary-soft) 38%, var(--color-surface));
+  border-color: color-mix(in srgb, var(--color-brand-primary) 54%, transparent);
+  color: color-mix(in srgb, var(--color-brand-primary) 82%, black);
+  transform: translateY(-1px);
+}
+
+.contact-close:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--color-brand-primary) 24%, transparent);
+  outline-offset: 2px;
+}
+
+.contact-form {
+  display: grid;
+  gap: var(--space-3);
+  width: 100%;
+  text-align: left;
+}
+
+.contact-form label {
+  color: var(--color-brand-primary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+}
+
+.contact-field {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  min-width: 0;
+  min-height: 2.7rem;
+  padding: 0 var(--space-3);
+  border: 1px solid color-mix(in srgb, var(--color-text-muted) 36%, transparent);
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--color-surface) 78%, transparent);
+  color: var(--color-text-primary);
+  font: inherit;
+  font-size: var(--font-size-sm);
+  transition:
+    border-color var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.contact-form textarea {
+  min-height: 8rem;
+  padding-block: var(--space-3);
+  resize: vertical;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: var(--color-text-muted);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--color-brand-primary);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-brand-primary) 14%, transparent);
+}
+
+.contact-toggle:hover,
+.contact-toggle:focus-visible,
+.contact-form button:hover,
+.contact-form button:focus-visible {
   background: color-mix(in srgb, var(--color-brand-primary) 88%, black);
   border-color: color-mix(in srgb, var(--color-brand-primary) 78%, black);
   transform: translateY(-1px);
 }
 
-.waitlist-input-row button:focus-visible {
+.contact-toggle:focus-visible,
+.contact-form button:focus-visible {
   outline: 3px solid color-mix(in srgb, var(--color-brand-primary) 28%, transparent);
   outline-offset: 2px;
 }
 
-.waitlist-input-row button:disabled {
+.contact-form button:disabled {
   opacity: 0.68;
   transform: none;
   cursor: not-allowed;
 }
 
-.waitlist-message {
+.contact-message {
   margin: 0;
   color: var(--color-text-secondary);
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
 }
 
-.waitlist-message:empty {
+.contact-message:empty {
   display: none;
 }
 
-.waitlist-message.success {
+.contact-message.success {
   color: var(--color-success);
 }
 
-.waitlist-message.error {
+.contact-message.error {
   color: var(--color-error);
 }
 
@@ -1312,12 +1431,12 @@ main {
     margin-inline: auto;
   }
 
-  .waitlist-section h2,
-  .waitlist-section > p {
+  .contact-section h2,
+  .contact-section > p {
     margin-inline: auto;
   }
 
-  .waitlist-form {
+  .contact-toggle {
     margin-inline: auto;
   }
 }
@@ -1355,12 +1474,25 @@ main {
     line-height: 1.6;
   }
 
-  .waitlist-input-row {
-    grid-template-columns: 1fr;
+  .contact-toggle,
+  .contact-form button {
+    width: 100%;
   }
 
-  .waitlist-input-row button {
+  .contact-modal {
+    align-items: end;
+    padding: var(--space-3);
+  }
+
+  .contact-modal-panel {
     width: 100%;
+    max-height: calc(100svh - 1.5rem);
+    border-radius: var(--radius-lg) var(--radius-lg) var(--radius-md) var(--radius-md);
+  }
+
+  .contact-modal-header {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
   }
 
   .coming-soon-visual {
@@ -1425,7 +1557,7 @@ main {
     font-size: clamp(2.85rem, 14.6vw, 3.75rem);
   }
 
-  .waitlist-section h2 {
+  .contact-section h2 {
     font-size: var(--font-size-xl);
   }
 
