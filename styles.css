@@ -2462,21 +2462,31 @@ h4 {
   line-height: var(--line-height-loose);
 }
 
-/* .booking-widget {
-  overflow: hidden;
-  border: 1px solid color-mix(in srgb, var(--color-border) 72%, transparent);
-  border-radius: var(--radius-lg);
-  background: var(--color-surface);
-  box-shadow: var(--shadow-sm);
-} */
+.booking-widget {
+  --calendly-widget-height: 700px;
+}
 
 .booking-widget .calendly-inline-widget {
+  min-width: 0;
   width: 100%;
+  height: var(--calendly-widget-height);
+  min-height: var(--calendly-widget-height);
+  overflow: visible;
+}
+
+@media (max-width: 715px) {
+  .booking-widget {
+    overflow: hidden;
+    border: 1px solid color-mix(in srgb, var(--color-border) 72%, transparent);
+    border-radius: var(--radius-lg);
+    background: var(--color-surface);
+    box-shadow: var(--shadow-sm);
+  }
 }
 
 @media (max-width: 620px) {
   .booking-hero {
-    padding-block: var(--space-12);
+    padding-block: var(--space-10) var(--space-12);
   }
 
   .booking-intro h1 {
@@ -2484,10 +2494,7 @@ h4 {
   }
 
   .booking-widget {
-    margin-inline: calc(var(--space-8) * -1);
-    border-right: 0;
-    border-left: 0;
-    border-radius: 0;
+    border-radius: var(--radius-md);
   }
 }
 
