@@ -15,7 +15,13 @@
           <img src="assets/images/logo-placeholder.svg" alt="Therapy With Jayne">
         </a>
 
-        <div class="nav-links">
+        <button class="nav-toggle" type="button" aria-controls="main-nav-menu" aria-expanded="false" aria-label="Open main menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="nav-links" id="main-nav-menu">
           <a href="meet-jayne.html">Meet Jayne</a>
           <a href="services.html">Services</a>
           <a href="faq.html" aria-current="page">FAQ</a>
@@ -93,6 +99,7 @@
         <p>&copy; 2026 Therapy With Jayne. All rights reserved.</p>
       </div>
     </footer>
+    <script src="nav.js"></script>
     <script>
       const faqList = document.querySelector("[data-faq-list]");
 
