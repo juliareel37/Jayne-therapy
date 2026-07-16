@@ -1228,6 +1228,40 @@ main {
   line-height: var(--line-height-loose);
 }
 
+.faq-answer p + p {
+  margin-top: var(--space-4);
+}
+
+.faq-answer ul {
+  margin: var(--space-3) 0 0;
+  padding-left: var(--space-5);
+}
+
+.faq-answer li {
+  line-height: var(--line-height-loose);
+}
+
+.faq-answer li + li {
+  margin-top: var(--space-2);
+}
+
+.faq-answer a {
+  color: var(--color-brand-primary);
+  text-decoration: underline;
+  text-decoration-thickness: 0.08rem;
+  text-underline-offset: 0.2em;
+}
+
+.faq-answer a:hover,
+.faq-answer a:focus-visible {
+  color: color-mix(in srgb, var(--color-brand-primary) 82%, black);
+}
+
+.faq-answer p + ul,
+.faq-answer ul + p {
+  margin-top: var(--space-4);
+}
+
 @media (max-width: 800px) {
   .faq-section {
     padding-block: var(--space-12);
